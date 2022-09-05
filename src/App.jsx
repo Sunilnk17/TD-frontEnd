@@ -10,8 +10,7 @@ function App() {
   const [recordsPerPage] = useState(10);
 
   
-const DELIVERY_URL =
-    "https://trade-depot.azurewebsites.net/api/v1/deliveries";
+const DELIVERY_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     axios
