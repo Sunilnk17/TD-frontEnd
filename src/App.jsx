@@ -9,7 +9,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(10);
 
-  const DELIVERY_URL =
+  
+const DELIVERY_URL =
     "https://trade-depot.azurewebsites.net/api/v1/deliveries";
 
   useEffect(() => {
@@ -17,7 +18,7 @@ function App() {
       .get(DELIVERY_URL, {
         headers: {
           Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJ1c2VySWQiOiI1Iiwic3ViIjoidGQtZnJlaWdodC10ZXN0IiwiaXNzIjoiMDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjYiLCJpYXQiOjE2NjIxNjg4OTksImF1ZCI6InJlc3RhcGl1c2VyIiwiZXhwIjoxNjYyMzQxNjk5fQ.7Cf0xO7ye51Tlfhuoff9G2urzMxN9V9KCJP5sO6_ncU",
+            `Bearer ${process.env.REACT_APP_TOKEN}`,
         },
       })
       .then((res) => {
